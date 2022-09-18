@@ -14,7 +14,7 @@ module.exports = class BasicDAO {
 
   async save(item) {
     try {
-      item.timestamp = new Date();
+      console.log(item);
       const newItem = await this.collection.create(item);
       if (newItem) {
         return newItem;
