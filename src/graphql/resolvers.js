@@ -1,6 +1,9 @@
+const ProductosControllers = require("../controllers/productosControllers");
+
+const productController = new ProductosControllers();
 const resolvers = {
     Query:{
-        getProducts:()=>`soy un producto`,
+        getAllProducts:()=>productController.getProducts(),
         getProduct:(nombre)=>`soy el producto ${nombre}`
     }
 }

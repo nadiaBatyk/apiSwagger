@@ -1,9 +1,15 @@
 const typeDefs = `
 type Query {
-    getProducts:String
+    getAllProducts:[Product]
     getProduct(nombre:String):String
 }
 
+type Product {
+    id:ID,
+    nombre:String,
+    precio:Int,
+    link:String
+}
 `
 
 

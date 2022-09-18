@@ -5,6 +5,5 @@ const productoSchema = new mongoose.Schema({
   link: { type: String, require: true },
   precio: { type: Number, require: true, min: 0 },
 
-  timestamp: { type: Date },
 });
 module.exports = productoSchema;

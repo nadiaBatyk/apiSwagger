@@ -4,40 +4,39 @@ module.exports = class ProductosControllers {
   constructor() {
     this.productosRepository = new ProductosRepository();
   }
-  getProducts = async (req, res, next) => {
+  getProducts = async () => {
     try {
       let productos = await this.productosRepository.obtenerProductos();
-      return res.json(productos);
+      return productos;
     } catch (error) {
-      return next(error);
+      return error;
     }
   };
 
-  addNewProduct = async (req, res, next) => {
+  addNewProduct = async (producto) => {
     try {
-      let producto = req.body;
       let newProduct = await this.productosRepository.agregarProducto(producto);
-      return res.json(newProduct);
+      return newProduct;
     } catch (error) {
-      return next(error);
+      return error;
     }
   };
-  deleteProduct = async (req, res, next) => {
+  deleteProduct = async (idProd) => {
     try {
-      let idProd = req.params.id;
       let mensaje = await this.productosRepository.eliminarProducto(idProd);
-      return res.json(mensaje);
+      return mensaje;
     } catch (error) {
-      return next(error);
+      return error;
     }
   };
-  updateProduct = async (req, res, next) => {
+  updateProduct = async (producto) => {
     try {
-      let producto = req.body;
-      let newProduct = await this.productosRepository.modificarProducto(producto);
-      return res.json(newProduct);
+      let newProduct = await this.productosRepository.modificarProducto(
+        producto
+      );
+      return newProduct;
     } catch (error) {
-      return next(error);
+      return error;
     }
   };
 };
