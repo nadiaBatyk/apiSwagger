@@ -14,7 +14,6 @@ module.exports = class BasicDAO {
 
   async save(item) {
     try {
-      console.log(item);
       const newItem = await this.collection.create(item);
       if (newItem) {
         return newItem;
@@ -52,10 +51,10 @@ module.exports = class BasicDAO {
       }
     }
   }
-  async update(item) {
+  async update(id,item) {
     try {
-      const updatedItem = await this.collection.findOneAndUpdate(
-        { _id: item._id },
+      const updatedItem = await this.collection.findByIdAndUpdate(
+        id,
         item,
         { new: true }
       );

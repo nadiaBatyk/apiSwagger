@@ -19,6 +19,7 @@ type Query {
 type Mutation {
     createProduct(product:ProductInput):Product
     deleteProduct(id:ID):String
+    updateProduct(id:ID,product:ProductInput):Product
 }
 
 

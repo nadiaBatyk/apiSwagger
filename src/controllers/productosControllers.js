@@ -29,9 +29,9 @@ module.exports = class ProductosControllers {
       return error;
     }
   };
-  updateProduct = async (producto) => {
+  updateProduct = async (id,producto) => {
     try {
-      let newProduct = await this.productosRepository.modificarProducto(
+      let newProduct = await this.productosRepository.modificarProducto(id,
         producto
       );
       return newProduct;

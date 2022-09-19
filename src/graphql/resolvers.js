@@ -3,13 +3,25 @@ const ProductosControllers = require("../controllers/productosControllers");
 const productController = new ProductosControllers();
 const resolvers = {
   Query: {
-    getAllProducts: () => productController.getProducts(),
+    getAllProducts: async () => {
+      const prod = await productController.getProducts();
+      return prod
+    },
   },
   Mutation: {
-    createProduct: (roots, { product }) => {
-      return productController.addNewProduct(product);
+    createProduct: async (roots, { product }) => {
+      const newProd = await productController.addNewProduct(product);
+      return newProd;
     },
-    deleteProduct:(roots,{id})=>productController.deleteProduct(id)
+    deleteProduct: async (roots, { id }) => {
+      const mensaje = await productController.deleteProduct(id);
+      return mensaje;
+    },
+    updateProduct: async (roots, { id, product }) => {
+      const updatedProd = await productController.updateProduct(id, product);
+
+      return updatedProd;
+    },
   },
 };
 

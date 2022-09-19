@@ -14,8 +14,8 @@ module.exports = class ProductosRepository {
     const prod = await this.productosDAO.save(producto);
     return new ProductoDTO(prod);
   }
-  async modificarProducto(producto) {
-    const prod = await this.productosDAO.update(producto);
+  async modificarProducto(id,producto) {
+    const prod = await this.productosDAO.update(id,producto);
     return new ProductoDTO(prod);
   }
   async eliminarProducto(idProd) {
