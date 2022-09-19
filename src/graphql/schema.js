@@ -7,8 +7,8 @@ type Product {
 }
 
 input ProductInput {
-    nombre:String
-    precio:Int
+    nombre:String!
+    precio:Int!
     link:String
 }
 
@@ -23,7 +23,6 @@ type Mutation {
 }
 
 
-`
+`;
 
-
-module.exports = typeDefs
+module.exports = typeDefs;
